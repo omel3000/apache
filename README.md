@@ -1,4 +1,4 @@
-# Apache2, SSL, FileZilla
+# Apache2, SSL, FileZilla for Ubuntu 
 Bash script which install and configure apache2, certifcats SSL using Certbot, FileZilla and add premissions +w to html catalog
 # How to use
 sudo apt install git  
