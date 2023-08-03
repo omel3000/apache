@@ -107,7 +107,7 @@ html="/var/www/html"
 if [ -d "$html" ]; then
 	# Add permissions +w 
 	chmod +w "$html"
-	echo "File +w permissions have been granted"
+	echo "File +w permissions to html catalog have been granted"
 else
 	echo "Catalog html doesn\`t exisist"
 fi
