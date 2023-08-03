@@ -97,8 +97,8 @@ echo $status
 apt install -y filezilla 
 
 # Verifying installation and viewing version
-#apt list -installed | grep filezilla
-#filezilla --version 
+apt list | grep filezilla
+filezilla --version 
 
 # Adding write permission to html catalog
 html="/var/www/html"
