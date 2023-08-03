@@ -3,7 +3,7 @@
 # Check root privileges
 
 if [ "$(id -u)" -ne 0 ]; then
-	echo "this script must my run with root privileges"
+	echo "This script must by run with root privileges"
 # If you don`t have root privileges - close script	
 	exit
 fi
@@ -21,7 +21,7 @@ systemctl enable apache2
 # Start Apache 2
 systemctl start apache2
 
-echo "Installation Apachce 2 is complete."
+echo "Installation Apache2 is complete."
 
 # View status 
 status=$(systemctl status apache2)
@@ -92,3 +92,22 @@ certbot --apache --non-interactive --agree-tos --email "$email" -d "$domian"
 
 # Check the status of Apache 
 echo $status
+
+# Installation FileZilla FTP client 
+apt install -y filezilla 
+
+# Verifying installation and viewing version
+#apt list -installed | grep filezilla
+#filezilla --version 
+
+# Adding write permission to html catalog
+html="/var/www/html"
+
+# Check if the directory exists
+if [ -d "$html" ]; then
+	# Add permissions +w 
+	chmod +w "$html"
+	echo "File +w permissions have been granted"
+else
+	echo "Catalog html doesn\`t exisist"
+fi
