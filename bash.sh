@@ -15,7 +15,7 @@ apt update
 # Installation Apache 2
 apt install -y apache2
 
-# Enabel Apache 2
+# Enable Apache 2
 systemctl enable apache2
 
 # Start Apache 2
@@ -41,7 +41,7 @@ snap install --classic certbot
 # Prepare the Certbot command 
 ln -s /snap/bin/certbot /usr/bin/certbot
 
-# Promt the user email address and domian name
+# Prompt the user email address and domian name
 # Function to validate email addess and domian name  using regular expression 
 
 function is_valid_email() {
@@ -65,11 +65,11 @@ while true; do
         fi
 done
 
-function is_valid_domian() {
-        local domian="$1"
-	local domian_regex="^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$"
+function is_valid_domain() {
+        local domain="$1"
+	local domain_regex="^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$"
 
-        if [[ "$domian" =~ $domian_regex ]]; then
+        if [[ "$domain" =~ $domain_regex ]]; then
                 return 0 # Valid 
         else
                 return 1 # Invalid
@@ -77,12 +77,12 @@ function is_valid_domian() {
 }
 
 while true; do
-        read -p "Enter your domian name: " domian
+        read -p "Enter your domain name: " domain
 
-        if is_valid_domian "$domian"; then
-               break # Valid domian name 
+        if is_valid_domain "$domain"; then
+               break # Valid domain name 
        else
-               echo "Invalid domian name. Please try again."
+               echo "Invalid domain name. Please try again."
         fi
 done
 
